@@ -1,0 +1,33 @@
+{
+	"devices": {
+		"smartwatch": {
+			"name": "smartwatch",
+			"memory": "True",
+			"sensors": {
+				"pulse": {
+					"dtype": "int",
+					"duration": "(1,s)"
+				},
+				"skinTemp": {
+					"dtype": "float",
+					"duration": "(1,s)"
+				},
+				"SpO2": {
+					"dtype": "float",
+					"duration": "(1,s)"
+				}
+			}
+		},
+		"pedometer": {
+			"name": "pedometer",
+			"memory": "False",
+			"sensors": {
+				"steps": {
+					"dtype": "int",
+					"duration": "(1,m)"
+				}
+			}
+
+		}
+	}
+}
