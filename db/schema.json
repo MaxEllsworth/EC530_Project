@@ -1,0 +1,41 @@
+{
+	"database": "schema",
+	"patient" : {
+		"keys" : 
+				{"id" 	: "int",
+				"fname" : "string",
+				"lname" : "string"}									
+				},
+
+	"personal_data" : {
+		"id"   : "int",
+		"keys" :	
+				{"sex" : "char",
+				"address" : "string",
+				"primary_care" : "string",
+				"allergies" : "string",
+				}
+				},
+
+	"basic_medical_statistics" : {
+		"id"   : "int",
+		"timestamp" : "int",
+		"keys" : 
+				{
+				"height" : "int",
+				"weight" : "int",
+				"systolic":"int",
+				"diastolic":"int",
+				}
+				},
+	"devices"	: {
+		"id"	: "int",
+		"keys" : {
+				"active" : "array" 
+				}
+				},
+
+} 
+
+
+	
