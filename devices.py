@@ -5,12 +5,16 @@
 
 import json
 import pickle
+import variables
 
-dev_objects = "./device_objects/"
+device_templates = variables.device_templates
+
 class device_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
 		return type.__new__(class_name,what,bases,dict)
 
+
+def instantiate_device(device_name):
 
 
 if __name__ == "__main__":
@@ -29,6 +33,6 @@ if __name__ == "__main__":
 		#help(device)
 		
 		print(device.sensors)
-		with open(dev_objects + device_name + ".pkl","wb") as output:
+		with open(device_templates + device_name + ".pkl","wb") as output:
 			pickle.dump(device, output, pickle.HIGHEST_PROTOCOL)
 		#class_keys = 

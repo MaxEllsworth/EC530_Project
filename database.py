@@ -1,10 +1,12 @@
-#!.python_venv/bin/python3.8
+#!/usr/bin/python3
 
-mongodb_port = 27017
-mongodb_address = "localhost"
+
 from pymongo import MongoClient
 import json
+import variables
 
+mongodb_port = variables.mongodb_port
+mongodb_address = variables.mongodb_address
 
 class mongo_wrapper(object):
 	def __init__(self):
