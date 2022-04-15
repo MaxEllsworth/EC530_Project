@@ -10,28 +10,10 @@ dev_objects = "./device_objects/"
 class device_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
 		return type.__new__(class_name,what,bases,dict)
-	#def sensors():
-	#	print()
-	#	pass
-	#def __init__(self):#self,temp = (), syst = (), diast = (), pulse = (), oxi = (), weight = (), glucose = ()):
-		'''self.temp = temp
-		self.syst = syst
-		self.diast = diast
-		self.pulse = pulse
-		self.oxi = oxi
-		self.weight = weight
-		self.glucose = glucose()
-		'''
 
 
 
-#class smartwatch(metaclass = device_metaclass):
-	True
 if __name__ == "__main__":
-
-#	print(watch)
-
-
 	f = open("devices.json")
 	devices = json.load(f)
 	f.close()

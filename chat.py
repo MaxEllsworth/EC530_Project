@@ -1,4 +1,4 @@
-#!.python_venv/bin/python3
+#!/usr/bin/python3.8
 
 from flask import Flask, render_template, request, redirect, url_for
 from flask_socketio import SocketIO
@@ -67,4 +67,4 @@ class room:
 
 
 if __name__ == "__main__":
-	socketio.run(app,debug=True)
+	socketio.run(app,host="0.0.0.0",debug=True)
