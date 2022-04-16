@@ -5,4 +5,10 @@ class user_metaclass(type):
 		return type.__new__(class_name,what,bases,dict)
 
 
-def add_user()
+def add_user(): 
+	def __new__(class_name, what, bases=None, dict=None):
+		return type.__new__(class_name,what,bases,dict)
+
+
+
+
