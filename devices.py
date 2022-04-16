@@ -15,10 +15,7 @@ class device_metaclass(type):
 
 
 def instantiate_device(device_name):
-
-
-if __name__ == "__main__":
-	f = open("devices.json")
+	f = open(device_templates + "devices.json")
 	devices = json.load(f)
 	f.close()
 	
@@ -36,3 +33,6 @@ if __name__ == "__main__":
 		with open(device_templates + device_name + ".pkl","wb") as output:
 			pickle.dump(device, output, pickle.HIGHEST_PROTOCOL)
 		#class_keys = 
+
+if __name__ == "__main__":
+	True

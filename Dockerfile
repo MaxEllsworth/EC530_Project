@@ -13,4 +13,4 @@ RUN pip3 install flask\
                  flask-socketio\
                  flask_cors 
 copy . . 
-CMD ["python3.8", "database.py"]#"chat.py"]
+CMD ["python3.8", "api.py"]#"chat.py"]

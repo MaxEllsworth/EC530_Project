@@ -1,7 +1,11 @@
 #!/usr/bin/python3.8
 
-from router import app
+from flask import Flask
+import variables
 
+
+flask_host = variables.flask_host
+app = Flask(__name__)
 
 @app.route("/api/add_user/")
 def add_user():
@@ -27,5 +31,5 @@ def remove_device_from_user():
 def list_available_devices():
     True
 
-
-
+if __name__ == "__main__":
+    app.run(host=flask_host)
