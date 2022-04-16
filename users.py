@@ -6,9 +6,9 @@ class user_metaclass(type):
 
 
 def add_user(): 
-	def __new__(class_name, what, bases=None, dict=None):
-		return type.__new__(class_name,what,bases,dict)
+	True
 
 
 
-
+if __name__ == "__main__":
+	True	
