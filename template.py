@@ -9,8 +9,7 @@ def load_template(template_id):
         f.close()
         return fields
 
-if __name__ == "__main__":
-    import variables
+
 
 
 
