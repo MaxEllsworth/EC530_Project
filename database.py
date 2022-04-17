@@ -36,7 +36,6 @@ class mongo_user_wrapper(object):
 		print(columns)
 		print(collection_name)
 		db = self.client[collection_name]
-
 		print(db.list_collection_names())
 		True
 	def update(self):
