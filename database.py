@@ -8,6 +8,7 @@ import users
 from time import sleep
 mongodb_port = variables.mongodb_port
 mongodb_address = variables.mongodb_address
+mongodb_uri = variables.mongodb_uri
 
 def item_generator(json_input, lookup_key):
 	# source: https://stackoverflow.com/questions/21028979/recursive-iteration-through-nested-json-for-specific-key-in-python
@@ -46,8 +47,8 @@ class mongo_user_wrapper(object):
 
 	
 if __name__ == "__main__":
-
-	client = MongoClient(mongodb_address, mongodb_port)
+	
+	client = MongoClient(mongodb_uri)#mongodb_address, mongodb_port)
 	db = client["patients"]
 	patient_uuid = db["patient_uuid"]
 	user = users.add_user("patient", {})
