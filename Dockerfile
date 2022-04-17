@@ -11,7 +11,8 @@ RUN pip3 install flask\
                  pymongo\
                  SpeechRecognition\ 
                  flask-socketio\
-                 flask_cors 
+                 flask_cors\
+                 flatten_json 
 copy . . 
 
 CMD ["python3.8", "database.py"]

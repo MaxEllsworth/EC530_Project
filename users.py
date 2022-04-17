@@ -17,7 +17,7 @@ def add_user(user_type, user_info, uid = ""):
 	traits = template.load_template(user_type)
 	user = type(user_type, (user_metaclass,),traits)
 	print(user.__name__)
-
+	return user
 def type_fixer(field, out_type):
 	out = None
 	if (out_type == "str"):

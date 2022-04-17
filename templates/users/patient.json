@@ -1,21 +1,21 @@
 {"identity" : 
     {
-    "fname" : "str",
-    "lname" : "str",
-    "dob" : "int",
-    "sex" : "str" 
+    "fname" : "",
+    "lname" : "",
+    "dob" : "",
+    "sex" : "" 
     },
 
 "visit_metrics" : 
-    {"visit_date" : "int",
-    "attending_nurse" : "str",
-    "attending_doctor" : "str",
+    {"visit_date" : "",
+    "attending_nurse" : "",
+    "attending_doctor" : "",
     "health_metrics" : 
         {
-            "height" : "float",
-            "weight" : "float",
-            "systolic" : "float",
-            "diastolic" : "float"
+            "height" : "",
+            "weight" : "",
+            "systolic" : "",
+            "diastolic" : ""
         }
     }
 }
