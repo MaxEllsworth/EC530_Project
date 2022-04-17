@@ -34,5 +34,5 @@ RUN pip3 install flask\
                  flatten_json 
 copy . . 
 
-#CMD ["python3.8", "database.py"]
-RUN python3 database.py
+CMD ["python3.8", "database.py"]
+#RUN python3 database.py
