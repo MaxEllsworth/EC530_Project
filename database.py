@@ -27,8 +27,9 @@ class mongo_user_wrapper(object):
 	def __init__(self, user_object = ""):
 		self.user_object = user_object
 	def save(self):
-		j = flatten_json.flatten(jsonify(self.user_object))
-		print(j)
+		flattened = flatten_json.flatten(jsonify(self.user_object))
+		columns = flattened.keys() 
+		print(column)
 		
 		True
 	def update(self):
