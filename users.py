@@ -8,6 +8,7 @@ Types of users:
 	administrators
 '''
 
+
 class user_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
 		return type.__new__(class_name,what,bases,dict)
@@ -37,4 +38,4 @@ def field_merger(schema, data):
 	# recursively merge fields
 	True
 if __name__ == "__main__":
-	add_user("doctor", {})
+	user = add_user("doctor", {})
