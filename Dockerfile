@@ -13,4 +13,5 @@ RUN pip3 install flask\
                  flask-socketio\
                  flask_cors 
 copy . . 
+
 CMD ["python3.8", "database.py"]
