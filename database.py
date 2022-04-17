@@ -26,11 +26,17 @@ def jsonify(object):
 class mongo_user_wrapper(object):
 	def __init__(self, user_object = ""):
 		self.user_object = user_object
+		self.client = MongoClient(mongodb_address, mongodb_port)
+	
 	def save(self):
 		flattened = flatten_json.flatten(jsonify(self.user_object))
+		collection_name = self.user_object.__name__
 		columns = flattened.keys() 
-		print(column)
-		
+		print(columns)
+		print(collection_name)
+		db = self.client[collection_name]
+
+		print(db.list_collection_names())
 		True
 	def update(self):
 		True
