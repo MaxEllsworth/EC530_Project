@@ -5,6 +5,7 @@ from pymongo import MongoClient
 import json, flatten_json # flatten json has to be installed
 import variables
 import users
+from time import sleep
 mongodb_port = variables.mongodb_port
 mongodb_address = variables.mongodb_address
 
@@ -35,7 +36,7 @@ class mongo_user_wrapper(object):
 		print(columns)
 		print(collection_name)
 		db = self.client[collection_name]
-
+		print("Howdy")
 		print(db.list_collection_names())
 		True
 	def update(self):
@@ -45,10 +46,11 @@ class mongo_user_wrapper(object):
 
 	
 if __name__ == "__main__":
+	print("TESTING")
 	client = MongoClient(mongodb_address, mongodb_port)
 	db = client["patients"]
 	patient_uuid = db["patient_uuid"]
 	user = users.add_user("patient", {})
 	db_wrapper = mongo_user_wrapper(user)
-	db_wrapper.save()
+	#db_wrapper.save()
 #	print(db)
