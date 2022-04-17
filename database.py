@@ -37,6 +37,7 @@ class mongo_user_wrapper(object):
 		print(collection_name)
 		db = self.client[collection_name]
 		print(db.list_collection_names())
+		#sleep(100000)
 		True
 	def update(self):
 		True
@@ -51,5 +52,5 @@ if __name__ == "__main__":
 	patient_uuid = db["patient_uuid"]
 	user = users.add_user("patient", {})
 	db_wrapper = mongo_user_wrapper(user)
-	#db_wrapper.save()
+	db_wrapper.save()
 #	print(db)
