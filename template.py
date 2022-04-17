@@ -9,7 +9,11 @@ def load_template(template_id):
         f.close()
         return fields
 
-
+    if (template_id == "doctor"):
+        f = open(variables.users_template + "doctor.json")
+        fields = json.load(f)
+        f.close()
+        return fields
 
 
 

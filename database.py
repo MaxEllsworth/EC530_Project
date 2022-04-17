@@ -8,12 +8,12 @@ import variables
 mongodb_port = variables.mongodb_port
 mongodb_address = variables.mongodb_address
 
-class mongo_wrapper(object):
+class mongo_user_wrapper(user):
 	def __init__(self):
 		True
-	def add_user(self):
+	def save(self):
 		True
-	def update_user(self):
+	def update(self):
 		True
 	
 

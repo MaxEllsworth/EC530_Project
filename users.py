@@ -24,12 +24,17 @@ def type_fixer(field, out_type):
 	if (out_type == "int"):
 		try:
 			out = int(field)
+		except TypeError:
+			pass
 	if (out_type == "float"):
 		try:
 			out = float(field)
+		except TypeError:
+			pass
 	return out
-def field_merger(schema, data):
-	True
 
+def field_merger(schema, data):
+	# recursively merge fields
+	True
 if __name__ == "__main__":
-	add_user("patient")
+	add_user("doctor", {})
