@@ -15,12 +15,6 @@ RUN mongod --dbpath /data/db  --fork --config /etc/mongod.conf  #--fork --logpat
 #RUN systemctl start mongod
 #RUN systemctl daemon-reload
 #RUN systemctl status mongod
-
-
-
-
-
-
 CMD ["git","clone","git@github.com:twbs/bootstrap.git"]
 
 #FROM mongo:latest
@@ -35,5 +29,5 @@ RUN pip3 install flask\
                  flask_cors\
                  flatten_json 
 copy . . 
-
-CMD ["python3.8", "database.py"]
+#CMD ["python3.8", "database.py"]
+RUN python3 database.py

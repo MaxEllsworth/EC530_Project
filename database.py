@@ -36,7 +36,7 @@ class mongo_user_wrapper(object):
 		print(columns)
 		print(collection_name)
 		db = self.client[collection_name]
-		print("Howdy")
+
 		print(db.list_collection_names())
 		True
 	def update(self):
@@ -46,7 +46,7 @@ class mongo_user_wrapper(object):
 
 	
 if __name__ == "__main__":
-	print("TESTING")
+
 	client = MongoClient(mongodb_address, mongodb_port)
 	db = client["patients"]
 	patient_uuid = db["patient_uuid"]
