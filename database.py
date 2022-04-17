@@ -47,7 +47,7 @@ class mongo_user_wrapper(object):
 
 	
 if __name__ == "__main__":
-	
+	print(mongodb_uri)
 	client = MongoClient(mongodb_uri)#mongodb_address, mongodb_port)
 	db = client["patients"]
 	patient_uuid = db["patient_uuid"]
