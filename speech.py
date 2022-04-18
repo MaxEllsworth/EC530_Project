@@ -48,7 +48,9 @@ def chunkify_using_silence(audio_input_id):
 
     path = variables.chunk_audio_dir + audio_input_id + "/"
 
-    
+    chunks = split_on_silence(audio_input,
+                              variables.min_silence_len,
+                              variables.silence_threshold)
 
 def transcribe_chunk():
     True
@@ -57,4 +59,5 @@ if __name__ == "__main__":
     r = sr.Recognizer()
     audio_uid = generate_audio_input_id()
     print("audio uid is " + audio_uid)
-    audio_file_locator("test_id_2")
+    audio_file_locator("test_id")
+    chunkify_using_silence("test_id")
