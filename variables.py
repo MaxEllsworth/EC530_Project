@@ -18,5 +18,5 @@ audio_dir = "./audio/"
 original_audio_dir = audio_dir + "./originals/"
 chunk_audio_dir = audio_dir + "./chunks/"
 min_silence_len = 500 # milliseconds
-silence_threshold = -16
+silence_threshold = -25
 
