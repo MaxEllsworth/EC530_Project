@@ -36,8 +36,8 @@ class mongo_user_wrapper(object):
 		columns = flattened.keys() 
 		print(columns)
 		print(collection_name)
-		#db = self.client[collection_name]
-		#print(db.list_collection_names())
+		db = self.client[collection_name]
+		print(db.list_collection_names())
 		#sleep(100000)
 		print("Finished save")
 		True
@@ -49,11 +49,15 @@ class mongo_user_wrapper(object):
 	
 if __name__ == "__main__":
 	print(mongodb_uri)
-	client = MongoClient("localhost", 27017)#mongodb_address, mongodb_port)
+	client = MongoClient(mongodb_uri)
 	db = client["patients"]
+	column = db["test_column"]
+	test_dict = {"1" : "one", "2" : "two"}
+	column.insert_one(test_dict)
 	print(db)
+	print(db.list_collection_names())
 	patient_uuid = db["patient_uuid"]
 	user = users.add_user("patient", {})
 	db_wrapper = mongo_user_wrapper(user)
-	db_wrapper.save()
+#	db_wrapper.save()
 	print(db)
