@@ -34,9 +34,19 @@ class mongo_user_wrapper(object):
 		flattened = flatten_json.flatten(jsonify(self.user_object))
 		collection_name = self.user_object.__name__
 		columns = flattened.keys() 
-		print(columns)
-		print(collection_name)
 		db = self.client[collection_name]
+		print(flattened)
+		for col in columns:
+			print("column is " + col)
+		#	if col not in db.list_collection_names():
+			inserted_column = db[col]
+			inserted_content = flattened[col]
+			if (inserted_content != None):
+				#inserted_content = {}
+				print("content is as follows " + str(inserted_content))
+				inserted_column.insert_one(inserted_content)
+			
+			
 		print(db.list_collection_names())
 		#sleep(100000)
 		print("Finished save")
@@ -50,14 +60,14 @@ class mongo_user_wrapper(object):
 if __name__ == "__main__":
 	print(mongodb_uri)
 	client = MongoClient(mongodb_uri)
-	db = client["patients"]
-	column = db["test_column"]
-	test_dict = {"1" : "one", "2" : "two"}
-	column.insert_one(test_dict)
-	print(db)
-	print(db.list_collection_names())
-	patient_uuid = db["patient_uuid"]
+#	db = client["patients"]
+#	column = db["test_column"]
+#	test_dict = {"1" : "one", "2" : "two"}
+#	column.insert_one(test_dict)
+#	print("Collection names are as follows:")
+#	print(db.list_collection_names())
+#	patient_uuid = db["patient_uuid"]
 	user = users.add_user("patient", {})
 	db_wrapper = mongo_user_wrapper(user)
-#	db_wrapper.save()
+	db_wrapper.save()
 	print(db)
