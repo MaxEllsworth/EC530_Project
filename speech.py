@@ -35,6 +35,8 @@ def audio_file_locator(audio_input_id, chunk = False):
     if not os.path.isdir(path):
         os.mkdir(root_path)
         os.mkdir(path)
+        print(root_path)
+        print(path)
 
 
 def chunkify_using_silence(audio_input_id):
