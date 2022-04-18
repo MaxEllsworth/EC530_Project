@@ -9,9 +9,12 @@ import uuid
 # https://www.geeksforgeeks.org/python-speech-recognition-on-large-audio-files/
 # https://en.wikipedia.org/wiki/Harvard_sentences
 
-def generate_audio_input_id(audio_input_id):
+def generate_audio_input_id(audio_input_id = None):
     ''' generates a new audio_input_uid if / until it finds one
         that does not already exist in the originals directory'''
+    if (audio_input_id == None) or (type(audio_input_id) != str):
+        audio_input_id = uuid.uuid4().hex
+
     original_audio_path = variables.original_audio_dir + audio_input_id + "/"
     while os.path.exists(original_audio_path): 
         audio_input_id = uuid.uuid4().hex
@@ -35,8 +38,6 @@ def audio_file_locator(audio_input_id, chunk = False):
     if not os.path.isdir(path):
         os.mkdir(root_path)
         os.mkdir(path)
-        print(root_path)
-        print(path)
 
 
 def chunkify_using_silence(audio_input_id):
@@ -55,4 +56,6 @@ def transcribe_chunk():
 
 if __name__ == "__main__":
     r = sr.Recognizer()
+    audio_uid = generate_audio_input_id()
+    print("audio uid is " + audio_uid)
     audio_file_locator("test_id_2")
