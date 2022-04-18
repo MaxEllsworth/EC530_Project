@@ -101,7 +101,9 @@ def transcribe_all_chunks(af):
        # source = AudioSegment.from_file(file = af.chunk_path(i), format=af.ext)
     #    source = sr.AudioFile(af.chunk_path(i))#, bitrate ='192k', format ="wav")
         with sr.AudioFile(af.chunk_path(i)) as source:
+            
             r = sr.Recognizer()
+           r.adjust_for_ambient_noise(source)  
            # try:
             print("translating " + af.chunk_path(i))
             audio = r.record(source)
