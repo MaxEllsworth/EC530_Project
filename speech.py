@@ -99,7 +99,7 @@ def transcribe_all_chunks(af):
     sleep(10000)
     for i in range(0,af.chunk_indices):
        # source = AudioSegment.from_file(file = af.chunk_path(i), format=af.ext)
-       source = sr.AudioFile(af.chunk_path(i), bitrate ='192k', format ="wav")
+        source = sr.AudioFile(af.chunk_path(i), bitrate ='192k', format ="wav")
        # with sr.AudioFile(af.chunk_path(i)) as source:
            # try:
         print("translating " + af.chunk_path(i))
