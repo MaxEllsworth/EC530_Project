@@ -5,7 +5,8 @@ from pymongo import MongoClient
 import json, flatten_json # flatten json has to be installed
 import variables
 import users
-from time import sleep
+from time import sleep, time
+
 mongodb_port = variables.mongodb_port
 mongodb_address = variables.mongodb_address
 mongodb_uri = variables.mongodb_uri
@@ -30,18 +31,26 @@ class mongo_user_wrapper(object):
 		self.user_object = user_object
 		self.client = MongoClient(mongodb_uri)
 	
+	def show(self):
+		collection_name = self.user_object.__name__
+		db = self.client[collection_name]
+		col = db["fake uid"]
+		cursor = col.find({})
+		for document in cursor:
+			print(document)
 	def save(self):
 		flattened = flatten_json.flatten(jsonify(self.user_object))
 		collection_name = self.user_object.__name__
+		flattened['cao'] = float(time())		
 		columns = flattened.keys() 
 		db = self.client[collection_name]
 		col = db["fake uid"]
-		print(flattened)
 		col.insert_one(flattened)
 			
-		print(db.list_collection_names())
-		#sleep(100000)
-		print("Finished save")
+		#print(db.list_collection_names())
+		
+
+
 	#	for col in columns:
 	#		print("column is " + col)
 	#	#	if col not in db.list_collection_names():
@@ -74,3 +83,4 @@ if __name__ == "__main__":
 	user = users.add_user("patient", {})
 	db_wrapper = mongo_user_wrapper(user)
 	db_wrapper.save()
+	db_wrapper.show()

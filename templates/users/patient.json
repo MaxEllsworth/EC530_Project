@@ -6,11 +6,11 @@
     "sex" : "" 
     },
 
-"visit_metrics" : 
-    {"visit_date" : "",
-    "attending_nurse" : "",
-    "attending_doctor" : "",
-    "health_metrics" : 
+"visitMetrics" : 
+    {"visitDate" : "",
+    "attendingNurse" : "",
+    "attendingDoctor" : "",
+    "healthMetrics" : 
         {
             "height" : "",
             "weight" : "",
