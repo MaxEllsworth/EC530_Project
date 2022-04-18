@@ -9,6 +9,11 @@ import uuid
 # https://www.geeksforgeeks.org/python-speech-recognition-on-large-audio-files/
 # https://en.wikipedia.org/wiki/Harvard_sentences
 
+class audio_file:
+    def __init__(self, audio_file_name, audio_uid):
+        self.audio_file_name = audio_file_name
+        self.audio_uid = audio_uid
+
 def generate_audio_input_id(audio_input_id = None):
     ''' generates a new audio_input_uid if / until it finds one
         that does not already exist in the originals directory'''
@@ -42,11 +47,12 @@ def audio_file_locator(audio_input_id, chunk = False):
 
 def chunkify_using_silence(audio_input_id):
     
-    audio_input = AudioSegment.from_wav(path)
 
     audio_file_locator(audio_input_id, chunk = True)
 
-    path = variables.chunk_audio_dir + audio_input_id + "/"
+    chunk_path = variables.chunk_audio_dir + audio_input_id + "/"
+
+    audio_input = AudioSegment.from_wav(path)
 
     chunks = split_on_silence(audio_input,
                               variables.min_silence_len,
@@ -57,7 +63,7 @@ def transcribe_chunk():
 
 if __name__ == "__main__":
     r = sr.Recognizer()
-    audio_uid = generate_audio_input_id()
-    print("audio uid is " + audio_uid)
-    audio_file_locator("test_id")
-    chunkify_using_silence("test_id")
+    audio_f = audio_file(audio_uid = "f5ce9b47903c4e3099ca71ca6a8e67f1")
+    print("audio uid is " + audio_f.audio_uid)
+    audio_file_locator(audio_f.audio_uid)
+    chunkify_using_silence(audio_f.audio_uid)
