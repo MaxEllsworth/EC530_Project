@@ -98,11 +98,13 @@ def transcribe_all_chunks(af):
     r = sr.Recognizer()
     for i in range(0,af.chunk_indices):
         with sr.AudioFile(af.chunk_path(i)) as source:
-            try:
-                audio_text = r.listen(source)
-              af.chunk_translations[i] = r.recognize_google(audio_text)
-            except:
-                pass
+           # try:
+            print("translating " + af.chunk_path(i))
+            audio_text = r.listen(source)
+            af.chunk_translations[i] = r.recognize_sphinx(audio_text, language='en')
+            #except:
+            #    pass
+
     
 
 if __name__ == "__main__":
@@ -111,4 +113,5 @@ if __name__ == "__main__":
 
     audio_file_locator(audio_f.audio_uid)
     chunkify_using_silence(audio_f)
-    transcribe_chunk(audio_f)
+    transcribe_all_chunks(audio_f)
+    print(audio_f.chunk_translations)
