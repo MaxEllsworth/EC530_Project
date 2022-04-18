@@ -10,6 +10,9 @@ RUN apt-get install -y mongodb-org
 RUN apt-get install ffmpeg -y 
 RUN apt-get install net-tools -y
 RUN netstat -tulpn
+#RUN apt-get install python3-dev -y
+#RUN apt-get install pulseaudio -y
+#RUN apt-get install swig -y
 #RUN mkdir /data/
 #RUN mkdir /data/db/
 #RUN mkdir /data/db/log
@@ -34,7 +37,7 @@ RUN pip3 install flask\
                  flask_cors\
                  flatten_json\
                  pydub\
-                 pocketsphinx
+             #    pocketsphinx
 copy . . 
 
 CMD ["python3.8", "speech.py"]
