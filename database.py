@@ -28,28 +28,32 @@ def jsonify(object):
 class mongo_user_wrapper(object):
 	def __init__(self, user_object = ""):
 		self.user_object = user_object
-		self.client = MongoClient(mongodb_address, mongodb_port)
+		self.client = MongoClient(mongodb_uri)
 	
 	def save(self):
 		flattened = flatten_json.flatten(jsonify(self.user_object))
 		collection_name = self.user_object.__name__
 		columns = flattened.keys() 
 		db = self.client[collection_name]
+		col = db["fake uid"]
 		print(flattened)
-		for col in columns:
-			print("column is " + col)
-		#	if col not in db.list_collection_names():
-			inserted_column = db[col]
-			inserted_content = flattened[col]
-			if (inserted_content != None):
-				#inserted_content = {}
-				print("content is as follows " + str(inserted_content))
-				inserted_column.insert_one(inserted_content)
-			
+		col.insert_one(flattened)
 			
 		print(db.list_collection_names())
 		#sleep(100000)
 		print("Finished save")
+	#	for col in columns:
+	#		print("column is " + col)
+	#	#	if col not in db.list_collection_names():
+	#		inserted_column = db[col]
+	#		inserted_content = flattened[col]
+	#		print(type(inserted_content))
+	#		if (inserted_content != None):
+	#			#inserted_content = {}
+	#			print("content is as follows " + str(inserted_content))
+	#			inserted_column.insert_one(inserted_content)
+	#		
+
 		True
 	def update(self):
 		True
@@ -70,4 +74,3 @@ if __name__ == "__main__":
 	user = users.add_user("patient", {})
 	db_wrapper = mongo_user_wrapper(user)
 	db_wrapper.save()
-	print(db)
