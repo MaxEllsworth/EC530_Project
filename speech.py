@@ -117,5 +117,6 @@ if __name__ == "__main__":
 
     audio_file_locator(audio_f.audio_uid)
     chunkify_using_silence(audio_f)
+    print("this code is so messed up")
     transcribe_all_chunks(audio_f)
     print(audio_f.chunk_translations)
