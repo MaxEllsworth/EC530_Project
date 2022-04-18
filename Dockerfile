@@ -30,13 +30,14 @@ EXPOSE 27017
 #FROM python:3.8.13-slim-buster
 workdir /app
 RUN apt-get install python3-pip -y
+#ADD requirements.txt ./
 RUN pip3 install flask\
                  pymongo\
                  SpeechRecognition\ 
                  flask-socketio\
                  flask_cors\
                  flatten_json\
-                 pydub\
+                 pydub
              #    pocketsphinx
 copy . . 
 
