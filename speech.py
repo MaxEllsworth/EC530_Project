@@ -44,12 +44,11 @@ def chunkify_using_silence(audio_input_id):
     
     audio_input = AudioSegment.from_wav(path)
 
+    audio_file_locator(audio_input_id, chunk = True)
 
-    try:
-        os.mkdir()
-    except (FileExistsError):
-        pass
+    path = variables.chunk_audio_dir + audio_input_id + "/"
 
+    
 
 def transcribe_chunk():
     True
