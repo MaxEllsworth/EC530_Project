@@ -14,3 +14,9 @@ mongodb_database = "flaskdb"
 mongodb_uri = 'mongodb://' + mongodb_username + ':' + mongodb_password + '@' + mongodb_address + ':' + str(mongodb_port) + '/' + mongodb_database + "?authSource=admin"
 
 
+audio_dir = "./audio/"
+original_audio_dir = audio_dir + "./originals/"
+chunk_audio_dir = audio_dir + "./chunks/"
+min_silence_len = 500 # milliseconds
+silence_threshold = -16
+
