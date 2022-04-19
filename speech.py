@@ -85,20 +85,17 @@ class audio_file:
         for chunk in chunks:
             i_chunk_filename = chunk_path + self.audio_uid + "-" + str(i) + self.ext
             chunk.export(i_chunk_filename, bitrate = "192k", format="wav")
-            print("Saved " + i_chunk_filename)
             i += 1 
         self.chunk_indices = i   
 
 
     def transcribe_all_chunks(self):
-        print("indices is " + str(self.chunk_indices))
         for i in range(0,self.chunk_indices):
             f = sr.AudioFile(self.chunk_path(i))
             with f as source:            
                 r = sr.Recognizer()
                 r.adjust_for_ambient_noise(source)  
                 audio = r.record(source)
-                #af.chunk_translations[i] = 
                 chunk_text = str(r.recognize_google(audio, language='en', show_all = True )['alternative'][0]['transcript'])
                 self.chunk_translations[0][i] = chunk_text
 
