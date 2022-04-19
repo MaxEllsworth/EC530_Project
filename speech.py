@@ -75,45 +75,33 @@ def chunkify_using_silence(af):
     audio_input = AudioSegment.from_wav(original_path)
 
     chunks = split_on_silence(audio_input, 
-                    min_silence_len = variables.min_silence_len,
-                    silence_thresh = audio_input.dBFS + 3)
+                #    min_silence_len = variables.min_silence_len,
+                    silence_thresh = audio_input.dBFS + 1,
+                    keep_silence = True)
                     #variables.silence_threshold)
 
     i = 0
    
     for chunk in chunks:
-        chunk_silent = AudioSegment.silent(duration = 10)
-        audio_chunk = chunk_silent + chunk + chunk_silent
-
         i_chunk_filename = chunk_path + af.audio_uid + "-" + str(i) + af.ext
-
-        audio_chunk.export(i_chunk_filename, bitrate ='192k', format ="wav")
+        chunk.export(i_chunk_filename, bitrate = "192k", format="wav")
         print("Saved " + i_chunk_filename)
         i += 1 
     af.chunk_indices = i   
-   # print(os.listdir(chunk_path))
 
 
 def transcribe_all_chunks(af):
     
     print("indices is " + str(af.chunk_indices))
     for i in range(0,af.chunk_indices):
-       # source = AudioSegment.from_file(file = af.chunk_path(i), format=af.ext)
-    #    source = sr.AudioFile(af.chunk_path(i))#, bitrate ='192k', format ="wav")
         f = sr.AudioFile(af.chunk_path(i))
-        with f as source:
-       # with sr.AudioFile(af.chunk_path(i)) as source:
-            
+        with f as source:            
             r = sr.Recognizer()
             r.adjust_for_ambient_noise(source)  
-           # try:
-            print("translating " + af.chunk_path(i))
             audio = r.record(source)
-          #  af.chunk_translations[i] = r.recognize_sphinx(audio_text, language='en')
-           # af.chunk_translations[i] = r.recognize_google(audio_text, language='en', show_all = True )
-            print(r.recognize_google(audio, language='en', show_all = True ))
-            #except:
-            #    pass
+            print(r.recognize_google(audio, language='en', show_all = True )['alternative'][0]['transcript'])
+            print('\n\n')
+
 
     
 
