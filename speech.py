@@ -91,7 +91,6 @@ def chunkify_using_silence(af):
 
 
 def transcribe_all_chunks(af):
-    
     print("indices is " + str(af.chunk_indices))
     for i in range(0,af.chunk_indices):
         f = sr.AudioFile(af.chunk_path(i))
@@ -101,7 +100,7 @@ def transcribe_all_chunks(af):
             audio = r.record(source)
             #af.chunk_translations[i] = 
             chunk_text = str(r.recognize_google(audio, language='en', show_all = True )['alternative'][0]['transcript'])
-            af.chunk_translations[i] = chunk_text
+            af.chunk_translations[0][i] = chunk_text
 
 
 
