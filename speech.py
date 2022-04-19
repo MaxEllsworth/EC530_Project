@@ -99,11 +99,11 @@ def transcribe_all_chunks(af):
             r = sr.Recognizer()
             r.adjust_for_ambient_noise(source)  
             audio = r.record(source)
-            print(r.recognize_google(audio, language='en', show_all = True )['alternative'][0]['transcript'])
-            print('\n\n')
+            #af.chunk_translations[i] = 
+            chunk_text = str(r.recognize_google(audio, language='en', show_all = True )['alternative'][0]['transcript'])
+            af.chunk_translations[i] = chunk_text
 
 
-    
 
 if __name__ == "__main__":
     r = sr.Recognizer()
