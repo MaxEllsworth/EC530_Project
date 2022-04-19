@@ -76,7 +76,7 @@ def chunkify_using_silence(af):
 
     chunks = split_on_silence(audio_input, 
                     min_silence_len = variables.min_silence_len,
-                    silence_thresh = audio_input.dBFS + 2)
+                    silence_thresh = audio_input.dBFS + 3)
                     #variables.silence_threshold)
 
     i = 0
@@ -100,7 +100,9 @@ def transcribe_all_chunks(af):
     for i in range(0,af.chunk_indices):
        # source = AudioSegment.from_file(file = af.chunk_path(i), format=af.ext)
     #    source = sr.AudioFile(af.chunk_path(i))#, bitrate ='192k', format ="wav")
-        with sr.AudioFile(af.chunk_path(i)) as source:
+        f = sr.AudioFile(af.chunk_path(i))
+        with f as source:
+       # with sr.AudioFile(af.chunk_path(i)) as source:
             
             r = sr.Recognizer()
             r.adjust_for_ambient_noise(source)  
@@ -124,3 +126,4 @@ if __name__ == "__main__":
     print("this code is so messed up")
     transcribe_all_chunks(audio_f)
     print(audio_f.chunk_translations)
+  #  sleep(100000)
