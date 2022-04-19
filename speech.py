@@ -89,8 +89,19 @@ class audio_file:
         self.chunk_indices = i   
 
 
-    def transcribe_all_chunks(self):
-        for i in range(0,self.chunk_indices):
+    def transcribe_chunks(self, transcribe_all = False, chunk_index = None):
+        min_iter = 0
+        max_iter = 0
+        if (transcribe_all):
+            max_iter = self.chunk_indices
+        
+        else:
+            min_iter = chunk_index
+            max_iter = chunk_index + 1:
+            
+
+        if 
+        for i in range(min_iter,max_iter):
             f = sr.AudioFile(self.chunk_path(i))
             with f as source:            
                 r = sr.Recognizer()
@@ -101,6 +112,7 @@ class audio_file:
 
 
 
+
 if __name__ == "__main__":
     r = sr.Recognizer()
     audio_f = audio_file(audio_uid =  "f5ce9b47903c4e3099ca71ca6a8e67f1",)
@@ -108,6 +120,6 @@ if __name__ == "__main__":
     audio_f.audio_file_locator(audio_f.audio_uid)
     audio_f.chunkify_using_silence()
     print("this code is so messed up")
-    audio_f.transcribe_all_chunks()
+    audio_f.transcribe_chunks()
     print(audio_f.chunk_translations)
   #  sleep(100000)
