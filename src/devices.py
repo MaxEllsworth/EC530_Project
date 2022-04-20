@@ -53,6 +53,7 @@ def list_devices():
 	#		pickle.dump(device[device_name], output, pickle.HIGHEST_PROTOCOL)
 	#	#class_keys = 
 		return all_device_info
+		print(all_device_info)
 
 if __name__ == "__main__":
-	True
+	list_devices()
