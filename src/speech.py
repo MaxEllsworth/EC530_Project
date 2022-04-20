@@ -111,6 +111,8 @@ class audio_file:
                     chunk_text = str(r.recognize_google(audio, language='en', show_all = True )['alternative'][0]['transcript'])
                     self.chunk_translations[0][i] = chunk_text
 
+        if (not transcribe_all) and (chunk_index != None):
+            return self.chunk_translations[0][chunk_index]
 
 
 

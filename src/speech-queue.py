@@ -1,17 +1,15 @@
 #!/usr/bin/python3
 
-#from speech import audio_file
-
 import multiprocessing
 import time
-#from multiprocessing import Process, Queue
-
-import multiprocessing
-
-import time
-
+import speech_recognition as sr
+from speech import audio_file
  
+def queue_transcribe_chunks(msgQueue, af):
+    af.transcribe_chunks(transcribe_all = True, chunk_index = 2)
 
+    msgQueue.put("Added at " + str(time.time()))
+    
 # Producer/Writer
 
 def procFunction0(messageQueue):
@@ -48,7 +46,7 @@ def procFunction2(messageQueue):
 
  
 
-if __name__ == "__main__":
+if __name__ != "__main__":
 
  
 
@@ -62,7 +60,7 @@ if __name__ == "__main__":
 
     # Create child processes
 
-    childProcess0 = multiprocessing.Process(target=procFunction0, args=(messageQueue,))
+    childProcess0 = multiprocessing.Process(target=queue_transcribe_chunks, args=(messageQueue,))
 
     childProcess1 = multiprocessing.Process(target=procFunction1, args=(messageQueue,))
 
@@ -87,3 +85,14 @@ if __name__ == "__main__":
     childProcess1.join()
 
     childProcess2.join()
+
+if __name__ == "__main__":
+    r = sr.Recognizer()
+    audio_f = audio_file(audio_uid =  "f5ce9b47903c4e3099ca71ca6a8e67f1",)
+
+    audio_f.audio_file_locator(audio_f.audio_uid)
+    audio_f.chunkify_using_silence()
+    print("this code is so messed up")
+
+    print(audio_f.chunk_translations)
+  #  sleep(100000)
