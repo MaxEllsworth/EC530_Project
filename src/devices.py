@@ -4,15 +4,18 @@
 #https://stackoverflow.com/questions/4529815/saving-an-object-data-persistence
 
 from flask_restx import Resource, Namespace, Api
-from flask import Flask
+from flask import Flask, Blueprint
 import logging
 import json
 import pickle
 import variables
+import os
 
 device_templates = variables.device_templates
 
 device_namespace = Namespace('device', 'Device Methods')
+
+example_blueprint = Blueprint("example_blueprint", __name__)
 
 class device_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
@@ -22,16 +25,19 @@ class device_metaclass(type):
 app = Flask(__name__)
 #api = Api(app)
 
-@app.route('/instantiate_device')
+#@app.route('/instantiate_device')
 #def instantiate_device(device_name):
+@example_blueprint.route("/instantiate_device")
 def instantiate_device():
-	f = open(device_templates + "devices.json")
-	devices = json.load(f)
-	f.close()
 	
+#	f = open(device_templates + "devices.json")
+#	devices = json.load(f)
+#	f.close()
+	
+	devices = [dev.rstrip(".json") for dev in os.listdir(device_templates)]
 
-	for dev in devices["devices"]:
-		device_name = dev
+	for dev in os.listdir(device_templates):#devices["devices"]:
+		device_name = dev.rstrip('.json')
 		device_sensors = devices["devices"][dev]
 
 		device = type("device",(device_metaclass,), device_sensors)
