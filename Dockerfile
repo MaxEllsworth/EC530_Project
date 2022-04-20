@@ -37,7 +37,9 @@ RUN pip3 install flask\
                  flask-socketio\
                  flask_cors\
                  flatten_json\
-                 pydub
+                 pydub\
+                 pyopenssl\
+                 flask-restx
              #    pocketsphinx
 copy . . 
 

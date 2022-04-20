@@ -3,18 +3,27 @@
 # https://www.geeksforgeeks.org/read-json-file-using-python/
 #https://stackoverflow.com/questions/4529815/saving-an-object-data-persistence
 
+from flask_restx import Resource, Namespace, Api
+import logging
 import json
 import pickle
 import variables
 
 device_templates = variables.device_templates
 
+device_namespace = Namespace('device', 'Device Methods')
+
 class device_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
 		return type.__new__(class_name,what,bases,dict)
 
 
-def instantiate_device(device_name):
+app = Flask(__name__)
+api = Api(app)
+
+@api.route('/instantiate_device')
+#def instantiate_device(device_name):
+def instantiate_device():
 	f = open(device_templates + "devices.json")
 	devices = json.load(f)
 	f.close()

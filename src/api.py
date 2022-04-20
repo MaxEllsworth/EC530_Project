@@ -1,12 +1,14 @@
 #!/usr/bin/python3.8
 
 from flask import Flask
+from flask_restx import Api
 import variables
 
 
 flask_host = variables.flask_host
 app = Flask(__name__)
-
+api = Api(app)
+'''
 @app.route("/api/add_user/")
 def add_user():
     True
@@ -30,7 +32,7 @@ def remove_device_from_user():
 @app.route("/api/list_available_devices")
 def list_available_devices():
     True
-    
+'''
 
 if __name__ == "__main__":
-    app.run(host=flask_host, ssl_context='adhoc')
+    app.run(host=flask_host)#, ssl_context='adhoc')
