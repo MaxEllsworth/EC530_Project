@@ -27,7 +27,7 @@ app = Flask(__name__)
 
 #@app.route('/instantiate_device')
 #def instantiate_device(device_name):
-@example_blueprint.route("/instantiate_device")
+@example_blueprint.route("/list_devices")
 def list_devices():
 	
 #	f = open(device_templates + "devices.json")
@@ -36,7 +36,7 @@ def list_devices():
 	
 	all_device_info = {}
 	devices = [dev.rstrip(".json") for dev in os.listdir(device_templates) if ".json" in dev]
-
+	print(devices)
 	for device_name in devices:
 		#device_name = dev.rstrip('.json')
 		f = open(device_templates + device_name + ".json")
