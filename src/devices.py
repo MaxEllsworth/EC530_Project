@@ -15,7 +15,7 @@ device_templates = variables.device_templates
 
 device_namespace = Namespace('device', 'Device Methods')
 
-example_blueprint = Blueprint("example_blueprint", __name__)
+devices_blueprint = Blueprint("Blueprint for devices", __name__)
 
 class device_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):

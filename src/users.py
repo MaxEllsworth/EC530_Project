@@ -10,7 +10,7 @@ Types of users:
 	administrators
 '''
 
-
+app = Flask(__name__)
 class user_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
 		return type.__new__(class_name,what,bases,dict)
