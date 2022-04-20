@@ -30,6 +30,7 @@ def remove_device_from_user():
 @app.route("/api/list_available_devices")
 def list_available_devices():
     True
+    
 
 if __name__ == "__main__":
-    app.run(host=flask_host)
+    app.run(host=flask_host, ssl_context='adhoc')

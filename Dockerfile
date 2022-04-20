@@ -41,5 +41,5 @@ RUN pip3 install flask\
              #    pocketsphinx
 copy . . 
 
-CMD ["python3.8", "./src/speech-queue.py"]
+CMD ["python3.8", "./src/api.py"]
 #RUN python3 database.py    
