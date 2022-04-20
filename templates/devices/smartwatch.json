@@ -1,0 +1,25 @@
+{
+    "smartwatch": 
+        {
+        "name": "smartwatch",
+        "memory": "True",
+        "sensors": 
+            {
+            "pulse": 
+                {
+                "dtype": "",
+                "duration": ""
+                 },
+            "skinTemp": 
+                {
+                "dtype": "",
+                "duration": ""
+                },
+            "SpO2": 
+                {
+                "dtype": "",
+                "duration": "(1,s)"
+                }
+          }
+        }
+}

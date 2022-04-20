@@ -36,10 +36,12 @@ def instantiate_device():
 	
 	devices = [dev.rstrip(".json") for dev in os.listdir(device_templates)]
 
-	for dev in os.listdir(device_templates):#devices["devices"]:
-		device_name = dev.rstrip('.json')
-		device_sensors = devices["devices"][dev]
-
+	for device_name in devices:
+		#device_name = dev.rstrip('.json')
+		f = open(device_templates + device_name + ".json")
+		
+		device_sensors = json.load(f)#devices["devices"][dev]
+		f.close()
 		device = type("device",(device_metaclass,), device_sensors)
 		#print(device.__dict__)
 		print("\n\n")

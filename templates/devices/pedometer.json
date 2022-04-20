@@ -1,0 +1,16 @@
+{
+"pedometer": 
+    {
+	"name": "pedometer",
+	"memory": "False",
+	"sensors": 
+        {
+		"steps": 
+            {
+			"dtype": "int",
+			"duration": "(1,m)"
+		    }
+	
+        }
+    }
+}
