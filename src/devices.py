@@ -28,30 +28,31 @@ app = Flask(__name__)
 #@app.route('/instantiate_device')
 #def instantiate_device(device_name):
 @example_blueprint.route("/instantiate_device")
-def instantiate_device():
+def list_devices():
 	
 #	f = open(device_templates + "devices.json")
 #	devices = json.load(f)
 #	f.close()
 	
-	devices = [dev.rstrip(".json") for dev in os.listdir(device_templates)]
+	all_device_info = {}
+	devices = [dev.rstrip(".json") for dev in os.listdir(device_templates) if ".json" in dev]
 
 	for device_name in devices:
 		#device_name = dev.rstrip('.json')
 		f = open(device_templates + device_name + ".json")
 		
-		device_sensors = json.load(f)#devices["devices"][dev]
+		device_info = json.load(f)#devices["devices"][dev]
 		f.close()
-		device = type("device",(device_metaclass,), device_sensors)
+		device = type("device",(device_metaclass,), device_info)
 		#print(device.__dict__)
-		print("\n\n")
+	#	print("\n\n")
 		#help(device)
 		
-		print(device.sensors)
-		with open(device_templates + device_name + ".pkl","wb") as output:
-			pickle.dump(device, output, pickle.HIGHEST_PROTOCOL)
-		#class_keys = 
-		return {"instantiated" : "true"}
+		all_device_info.update(device_info)
+	#	with open(device_templates + device_name + ".pkl","wb") as output:
+	#		pickle.dump(device[device_name], output, pickle.HIGHEST_PROTOCOL)
+	#	#class_keys = 
+		return all_device_info
 
 if __name__ == "__main__":
 	True
