@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import template
 import variables
+from flask import Flask, Blueprint
+
 '''
 Types of users:
 	patients
@@ -12,6 +14,7 @@ Types of users:
 class user_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
 		return type.__new__(class_name,what,bases,dict)
+
 
 def add_user(user_type, user_info, uid = ""): 
 	traits = template.load_template(user_type)

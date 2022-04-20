@@ -7,8 +7,8 @@
         {
 		"steps": 
             {
-			"dtype": "int",
-			"duration": "(1,m)"
+			"dtype": "",
+			"duration": ""
 		    }
 	
         }

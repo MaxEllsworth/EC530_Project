@@ -29,8 +29,6 @@ class audio_file:
         return variables.chunk_audio_dir + self.audio_uid + "/" + self.audio_uid + "-" + str(i) + self.ext
      
 
-
-
     def generate_audio_input_id(self):#, audio_uid = None):
         ''' generates a new audio_input_uid if / until it finds one
             that does not already exist in the originals directory'''
