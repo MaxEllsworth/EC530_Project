@@ -3,11 +3,11 @@
 from flask import Flask
 from flask_restx import Api
 import variables
-
+import devices
 
 flask_host = variables.flask_host
 app = Flask(__name__)
-api = Api(app)
+#api = Api(app)
 '''
 @app.route("/api/add_user/")
 def add_user():

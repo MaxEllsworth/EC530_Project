@@ -4,6 +4,7 @@
 #https://stackoverflow.com/questions/4529815/saving-an-object-data-persistence
 
 from flask_restx import Resource, Namespace, Api
+from flask import Flask
 import logging
 import json
 import pickle
@@ -19,9 +20,9 @@ class device_metaclass(type):
 
 
 app = Flask(__name__)
-api = Api(app)
+#api = Api(app)
 
-@api.route('/instantiate_device')
+@app.route('/instantiate_device')
 #def instantiate_device(device_name):
 def instantiate_device():
 	f = open(device_templates + "devices.json")
@@ -42,6 +43,7 @@ def instantiate_device():
 		with open(device_templates + device_name + ".pkl","wb") as output:
 			pickle.dump(device, output, pickle.HIGHEST_PROTOCOL)
 		#class_keys = 
+		return {"instantiated" : "true"}
 
 if __name__ == "__main__":
-	import
+	True
