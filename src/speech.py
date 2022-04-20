@@ -95,20 +95,21 @@ class audio_file:
         if (transcribe_all):
             max_iter = self.chunk_indices
         
-        else:
+        if (not transcribe_all) and (chunk_index != None):
             min_iter = chunk_index
-            max_iter = chunk_index + 1:
+            max_iter = chunk_index + 1
             
 
-        if 
+        
         for i in range(min_iter,max_iter):
-            f = sr.AudioFile(self.chunk_path(i))
-            with f as source:            
-                r = sr.Recognizer()
-                r.adjust_for_ambient_noise(source)  
-                audio = r.record(source)
-                chunk_text = str(r.recognize_google(audio, language='en', show_all = True )['alternative'][0]['transcript'])
-                self.chunk_translations[0][i] = chunk_text
+            if os.path.exists(self.chunk_path(i)):
+                f = sr.AudioFile(self.chunk_path(i))
+                with f as source:            
+                    r = sr.Recognizer()
+                    r.adjust_for_ambient_noise(source)  
+                    audio = r.record(source)
+                    chunk_text = str(r.recognize_google(audio, language='en', show_all = True )['alternative'][0]['transcript'])
+                    self.chunk_translations[0][i] = chunk_text
 
 
 
@@ -120,6 +121,6 @@ if __name__ == "__main__":
     audio_f.audio_file_locator(audio_f.audio_uid)
     audio_f.chunkify_using_silence()
     print("this code is so messed up")
-    audio_f.transcribe_chunks()
+    audio_f.transcribe_chunks(transcribe_all = True, chunk_index = 2)
     print(audio_f.chunk_translations)
   #  sleep(100000)

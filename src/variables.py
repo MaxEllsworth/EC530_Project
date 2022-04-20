@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import os
+
 flask_host = "0.0.0.0"
 device_templates = "./templates/devices/"
 users_template = "./templates/users/"
