@@ -2,7 +2,7 @@
 
 #docker-compose up &
 # docker system prune -a
-docker build -t ec530_docker_image . # --no-cache
+docker build -t ec530_docker_image . --no-cache
 docker run -p 5000:5000 ec530_docker_image #-p 172.17.0.1:27017:27017 ec530_docker_image 
 #docker run -d -v ~/Code/EC530/EC530_Project:/app ec530_docker_image
 
@@ -10,3 +10,7 @@ docker run -p 5000:5000 ec530_docker_image #-p 172.17.0.1:27017:27017 ec530_dock
 
 # docker rmi $(docker images -f "dangling=true" -q)
 
+
+# https://www.websequencediagrams.com/
+# platinum uml
+# protobuff

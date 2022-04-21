@@ -11,6 +11,8 @@ Types of users:
 '''
 
 app = Flask(__name__)
+user_blueprint = Blueprint("User blueprint", __name__)
+
 class user_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
 		return type.__new__(class_name,what,bases,dict)

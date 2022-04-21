@@ -3,11 +3,13 @@
 from flask import Flask
 from flask_restx import Api
 import variables
-from devices import example_blueprint
+
+from devices import device_blueprint
+from users import user_blueprint
 
 flask_host = variables.flask_host
 app = Flask(__name__)
-app.register_blueprint(example_blueprint)
+app.register_blueprint(device_blueprint)
 #api = Api(app)
 '''
 @app.route("/api/add_user/")

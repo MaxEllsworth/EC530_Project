@@ -15,7 +15,7 @@ device_templates = variables.device_templates
 
 device_namespace = Namespace('device', 'Device Methods')
 
-devices_blueprint = Blueprint("Blueprint for devices", __name__)
+device_blueprint = Blueprint("Device blueprint", __name__)
 
 class device_metaclass(type):
 	def __new__(class_name, what, bases=None, dict=None):
@@ -27,7 +27,7 @@ app = Flask(__name__)
 
 #@app.route('/instantiate_device')
 #def instantiate_device(device_name):
-@example_blueprint.route("/list_devices")
+@device_blueprint.route("/list_devices")
 def list_devices():
 	
 #	f = open(device_templates + "devices.json")

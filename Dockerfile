@@ -10,6 +10,7 @@ RUN apt-get install -y mongodb-org
 RUN apt-get install ffmpeg -y 
 RUN apt-get install net-tools -y
 RUN netstat -tulpn
+RUN apt-get install git -y
 #RUN apt-get install python3-dev -y
 #RUN apt-get install pulseaudio -y
 #RUN apt-get install swig -y
@@ -22,7 +23,6 @@ RUN netstat -tulpn
 #RUN systemctl daemon-reload
 #RUN systemctl status mongod
 
-CMD ["git","clone","git@github.com:twbs/bootstrap.git"]
 
 #FROM mongo:latest
 RUN mongod --fork --logpath /var/log/mongod.log
@@ -41,7 +41,8 @@ RUN pip3 install flask\
                  pyopenssl\
                  flask-restx
              #    pocketsphinx
-copy . . 
-
-CMD ["python3.8", "./src/api.py"]
+copy . .
+ADD bootstrap/ /app/html/bootstrap/
+ADD css/ /app/html/css/
+CMD ["python3.8", "./src/chat.py"]
 #RUN python3 database.py    

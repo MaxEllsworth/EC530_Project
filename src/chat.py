@@ -7,8 +7,8 @@ from flask_cors import CORS
 import logging
 import os
 
-template_dir = os.path.abspath('./html/')
-app = Flask(__name__,template_folder=template_dir, static_folder="./bootstrap/")
+template_dir = os.path.abspath('/app/static/')
+app = Flask(__name__,template_folder=template_dir, static_folder="/app/static/")
 CORS(app)
 app.logger.setLevel(logging.INFO)
 socketio = SocketIO(app,cors_allowed_origins="*")
