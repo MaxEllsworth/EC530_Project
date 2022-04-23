@@ -10,7 +10,7 @@
 | **[speech.py](#Speech_To_Text)** | test| 
 | **[template.py](#Template_Processor)** | test| 
 | **[tests.py](#Tests)**| test| 
-| **[users.py](#User_Code)**|  test| 
+| **[users.py](#User Code)**|  test| 
 | **[variables.py](#Variable_Definitions)**| test|
 
 
@@ -33,6 +33,6 @@
 
 ### User Code 
 
-### Variable DefInitions 
+### Variable Definitions 
 
 ### main.py and web_app.py
