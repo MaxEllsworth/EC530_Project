@@ -33,6 +33,6 @@
 
 ### User Code 
 
-### Variable Defenitions 
+### Variable DefInitions 
 
 ### main.py and web_app.py
