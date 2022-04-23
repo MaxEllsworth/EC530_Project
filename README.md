@@ -4,13 +4,13 @@
 | --------------- | ------------------------------------------------------------------------------ | 
 | **[api.py](#API)** | Responsible for pulling together all the separate modules into one RESTful API | 
 | **[chat.py](#Chat)** | An in-browser chat application that uses Flask-SocketIO as its backend | 
-| **[Database](#Database)** A mongodb wrapper for any device or user actions performed through the API | 
+| **[Database](#Database)** |  A mongodb wrapper for any device or user actions performed through the API | 
 | **[Device Code](#Device_Code)** | yadayadayada |  
 
 
-# API
+## API
 
-# Chat Module
+## Chat Module
 
 # Database
 
