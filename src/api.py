@@ -1,7 +1,7 @@
 #!/usr/bin/python3.8
 
 from flask import Flask
-from flask_restx import Api
+#from flask_restx import Api
 import variables
 
 from devices import device_blueprint
