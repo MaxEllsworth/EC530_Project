@@ -4,8 +4,15 @@
 | --------------- | ------------------------------------------------------------------------------ | 
 | **[api.py](#API)** | Responsible for pulling together all the separate modules into one RESTful API | 
 | **[chat.py](#Chat)** | An in-browser chat application that uses Flask-SocketIO as its backend | 
-| **[Database](#Database)** |  A mongodb wrapper for any device or user actions performed through the API | 
-| **[Device Code](#Device_Code)** | yadayadayada |  
+| **[database.py](#Database)** |  A mongodb wrapper for any device or user action performed via the API | 
+| **[devices.py](#Device_Code)** | |  
+| **[speech-queue.py](#Speech_Queue)** | | 
+| **[speech.py](#Speech_To_Text)** | | 
+| **[template.py](#Template_Processor)** | | 
+| **[tests.py](#Tests)**| | 
+| **[users.py](#User_Code)**| | 
+| **[variables.py](#Variable_Definitions)**| |
+
 
 
 ### API
