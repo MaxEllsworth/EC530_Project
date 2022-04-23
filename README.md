@@ -8,10 +8,10 @@
 | **[devices.py](#Device_Code)** | no |  
 | **[speech-queue.py](#Speech Queue)** | no | 
 | **[speech.py](#Speech_To_Text)** |  no | 
-| **[template.py](#Template_Processor)** | no | 
+| **[template.py](#Template Processor)** | no | 
 | **[tests.py](#Tests)**| no | 
 | **[users.py](#User Code)**|  yes | 
-| **[variables.py](#Variable_Definitions)**|  no |
+| **[variables.py](#Variable Definitions)**|  no |
 
 
 
