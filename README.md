@@ -12,20 +12,20 @@
 
 ## Chat Module
 
-# Database
+## Database
 
-# Device Code
+## Device Code
 
-# Speech Queue
+## Speech Queue
 
-# Speech To Text
+## Speech To Text
 
-# Template Processor
+## Template Processor
 
-# Tests 
+## Tests 
 
-# User Code 
+## User Code 
 
-# Variable Defenitions 
+## Variable Defenitions 
 
-# main.py and web_app.py
+## main.py and web_app.py
