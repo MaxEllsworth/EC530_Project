@@ -1,5 +1,7 @@
 # Installation
 
+Docker is required to run this application in a container (this is recommended). Docker version 20.10.7 was used when originally writing the code. Otherwise, python3 will suffice.  
+
 Before running `docker.sh`, change directory into the `mongo-docker` directory and run `docker-compose up`. This will get the `mongodb` database up and running. 
 
 This project is Dockerized in `Dockerfile`. It is recommended to run it using ./docker.sh, however the line in the `Dockerfile` with `CMD ["python3.8", "./src/api.py"]` will need to be updated in the event that you want to run an alternative application. 
