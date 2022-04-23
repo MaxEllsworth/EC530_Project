@@ -1,5 +1,28 @@
 # Installation
 
+Before running `docker.sh`, change directory into the `mongo-docker` directory and run `docker-compose up`. This will get the `mongodb` database up and running. 
+
+This project is Dockerized in `Dockerfile`. It is recommended to run it using ./docker.sh, however the line in the `Dockerfile` with `CMD ["python3.8", "./src/api.py"]` will need to be updated in the event that you want to run an alternative application. 
+
+
+All dependecies are included in the `Dockerfile`, however they can be broken down into the following two categories: ubuntu dependencies, and python3 dependencies:
+| Ubuntu | Python3 | 
+| ------ | ------- | 
+| ffmpeg | flask-restx       |
+| gnupg  | flask-socketio    |
+| mongodb-org | flask_cors   |
+|        | flatten_json      |
+|        | pdoc3             |
+|        | pydub             |
+|        | pymongo           |
+|        | pyopenssl         |
+|        | SpeechRecognition |  
+
+
+
+
+
+
 
 
 # Overview
