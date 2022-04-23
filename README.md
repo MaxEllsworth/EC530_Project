@@ -6,7 +6,7 @@
 | **[chat.py](#Chat_Module)** | An in-browser chat application that uses Flask-SocketIO as its backend | 
 | **[database.py](#Database)** |  A mongodb wrapper for any device or user action performed via the API | 
 | **[devices.py](#Device_Code)** | no |  
-| **[speech-queue.py](#Speech_Queue)** | no | 
+| **[speech-queue.py](#Speech Queue)** | no | 
 | **[speech.py](#Speech_To_Text)** |  no | 
 | **[template.py](#Template_Processor)** | no | 
 | **[tests.py](#Tests)**| no | 
