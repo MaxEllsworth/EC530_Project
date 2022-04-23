@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     childProcess0 = multiprocessing.Process(target=queue_transcribe_chunks, args=(messageQueue,audio_f, 0))
 
-    childProcess1 = multiprocessing.Process(target=procFunction1, args=(messageQueue,))
+ #   childProcess1 = multiprocessing.Process(target=procFunction1, args=(messageQueue,))
 
  #   childProcess2 = multiprocessing.Process(target=procFunction2, args=(messageQueue,))
 
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     childProcess0.start()
 
-    childProcess1.start()
+  #  childProcess1.start()
 
   #  childProcess2.start()
 

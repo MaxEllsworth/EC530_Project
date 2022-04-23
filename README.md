@@ -1,3 +1,6 @@
+# Installation
+
+
 
 # Overview
 
@@ -17,7 +20,7 @@
 
 
 ### API
-
+I elected to create a minimal Flask API  
 ### Chat Module
 
 ### Database
