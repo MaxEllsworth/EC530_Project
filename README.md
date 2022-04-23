@@ -6,11 +6,11 @@
 | **[api.py](#API)** | Responsible for pulling together all the separate modules into one RESTful API | 
 | **[chat.py](#Chat-Module)** | An in-browser chat application that uses Flask-SocketIO as its backend | 
 | **[database.py](#Database)** |  A mongodb wrapper for any device or user action performed via the API | 
-| **[devices.py](#Device-Code)** | no |  
-| **[speech-queue.py](#Speech-Queue)** | no | 
-| **[speech.py](#Speech-To-Text)** |  no | 
-| **[template.py](#Template-Processor)** | no | 
-| **[tests.py](#Tests)** | yes | 
+| **[devices.py](#Device-Code)** | Loads devices from json templates and instantiates them as objects  |  
+| **[speech-queue.py](#Speech-Queue)** | (Experimental) Runs speech to text using multiprocessed queues us | 
+| **[speech.py](#Speech-To-Text)** |  Class function definitions for splitting, transcribing audio  | 
+| **[template.py](#Template-Processor)** | JSON processor for loading user (patient, doctor, etc) profiles | 
+| **[tests.py](#Tests)** | Unittest testing | 
 | **[users.py](#User-Code)** |  yes | 
 | **[variables.py](#Variable-Definitions)**|  no |
 
