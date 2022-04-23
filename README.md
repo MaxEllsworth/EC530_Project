@@ -9,8 +9,8 @@
 | **[speech-queue.py](#Speech_Queue)** | test| 
 | **[speech.py](#Speech_To_Text)** | test| 
 | **[template.py](#Template_Processor)** | test| 
-| **[tests.py](#Tests)**| | 
-| **[users.py](#User_Code)**| | 
+| **[tests.py](#Tests)**| test| 
+| **[users.py](#User_Code)**|  test| 
 | **[variables.py](#Variable_Definitions)**| test|
 
 
