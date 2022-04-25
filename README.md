@@ -53,9 +53,15 @@ I elected to create a minimal Flask API
 ### Device Code
 
 ### Speech Queue
-
+The speech queue is just an implementation of the [speech to text](#Speech-To-Text) module where the transcription function is executed as a target process in a multiprocess queue. The benefit of using mulitiprocess queues is that they are native to Python3 and do not require any extra broker servers to be running in the background. This part of the project is not completely flushed out and still requires a bit of work, however the basic outline is there.  
 ### Speech To Text
+This implementation of speech transcription uses `pydub` for processing (splitting on silence), the `speech_recognition` (`sr`) Python library, and the Google speech API (`r.recognize_google()`) accompanying `sr`. 
 
+In order to perform transcription, the audio file and associated metadata (storage location, uid) are congregated in an `audio_file` object. The `audio_file` class has all the functions required for performing transcription, which include the following:
+- Locating the audio file on disk and verifying it exists
+- Splitting of the large audio file into smaller chunks using `pydub`
+- Generating unique IDs for the audio files and chunks using the Python `uuid` library
+- Transcription using Google's API via `speech_recognition`
 ### Template Processor
 
 ### Tests 

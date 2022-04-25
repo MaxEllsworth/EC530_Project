@@ -5,7 +5,7 @@ import time
 import speech_recognition as sr
 from speech import audio_file
 
-# Multiprocessing queue code examples taken from https://pythontic.com/multiprocessing/multiprocessing/introduction 
+# Multiprocessing queue code examples (particularly the procFunction code) was taken from https://pythontic.com/multiprocessing/multiprocessing/introduction 
 
 def queue_transcribe_chunks(msgQueue, af, chunk_index):
     chunk_text = af.transcribe_chunks(transcribe_all = False, chunk_index = chunk_index)

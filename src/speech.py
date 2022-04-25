@@ -120,7 +120,6 @@ if __name__ == "__main__":
 
     audio_f.audio_file_locator(audio_f.audio_uid)
     audio_f.chunkify_using_silence()
-    print("this code is so messed up")
     audio_f.transcribe_chunks(transcribe_all = True, chunk_index = 2)
     print(audio_f.chunk_translations)
   #  sleep(100000)
