@@ -28,5 +28,5 @@ RUN pip3 install flask\
 copy . .
 #ADD bootstrap/ /app/html/bootstrap/
 #ADD css/ /app/html/css/
-CMD ["python3.8", "./src/api.py"]
+CMD ["python3.8", "./src/speech.py"]
 #RUN python3 database.py    
