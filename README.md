@@ -55,8 +55,9 @@ The chat module uses the following libraries / code written by other people:
 - [Brijesh Bittu](https://codepen.io/brijeshb42/pen/pprmeO)
 
 ### Database
-
+I elected to use MongoDB (a Docker [`mongod`](https://hub.docker.com/_/mongo) service and the `pymongo` (https://pypi.org/project/pymongo/) library)
 ### Device Code
+The device module is responsible for importing templates (currently json files).   
 
 ### Speech Queue
 The speech queue is just an implementation of the [speech to text](#Speech-To-Text) module where the transcription function is executed as a target process in a multiprocess queue. The benefit of using mulitiprocess queues is that they are native to Python3 and do not require any extra broker servers to be running in the background. This part of the project is not completely flushed out and still requires a bit of work, however the basic outline is there.  
@@ -69,6 +70,7 @@ In order to perform transcription, the audio file and associated metadata (stora
 - Generating unique IDs for the audio files and chunks using the Python `uuid` library
 - Transcription using Google's API via `speech_recognition`
 ### Template Processor
+The template processor takes a template ID (patient, doctor, etc.) as an input and outputs the appropriate 
 
 ### Tests 
 
