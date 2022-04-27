@@ -48,6 +48,11 @@ All dependecies are included in the `Dockerfile`, however they can be broken dow
 I elected to create a minimal Flask API by using Flask blueprints. After writing all of my separate modules, I went back through them and modified them so that individual functions would return Flask responses. I then connected them all to my web application in `api.py` by using Flask blueprints. By instantiating my functions as Flask blueprints, I could have them defined in multiple different files, import them all in `api.py`, and then have them automatically populate as routes in Flask. 
 
 ### Chat Module
+The chat module uses the following libraries / code written by other people:
+- [Flask](https://pypi.org/project/Flask/)
+- [Flask-SocketIO](https://pypi.org/project/Flask-SocketIO/)
+- [Bootstrap](https://github.com/twbs/bootstrap)
+- [Brijesh Bittu](https://codepen.io/brijeshb42/pen/pprmeO)
 
 ### Database
 
