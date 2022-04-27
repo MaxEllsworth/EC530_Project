@@ -52,7 +52,7 @@ The chat module uses the following libraries / code written by other people:
 - [Brijesh Bittu](https://codepen.io/brijeshb42/pen/pprmeO)
 
 ### Database
-I elected to use MongoDB (a Docker [`mongod`](https://hub.docker.com/_/mongo) service and the `pymongo` (https://pypi.org/project/pymongo/) library)
+I elected to use MongoDB (a Docker [`mongod`](https://hub.docker.com/_/mongo) service and the [`pymongo`](https://pypi.org/project/pymongo/) library)
 ### Device Code
 The device module is responsible for importing templates (currently json files).   
 
