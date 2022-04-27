@@ -24,9 +24,6 @@ All dependecies are included in the `Dockerfile`, however they can be broken dow
 
 
 
-
-
-
 # Overview
 
 | Modules | Description |
@@ -70,7 +67,7 @@ In order to perform transcription, the audio file and associated metadata (stora
 - Generating unique IDs for the audio files and chunks using the Python `uuid` library
 - Transcription using Google's API via `speech_recognition`
 ### Template Processor
-The template processor takes a template ID (patient, doctor, etc.) as an input and outputs the appropriate 
+The template processor takes a template ID (patient, doctor, etc.) as an input, loads the json file, and outputs the contents as a JSON object 
 
 ### Tests 
 
