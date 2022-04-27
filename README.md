@@ -51,7 +51,7 @@ The chat module uses the following libraries / code written by other people:
 - [Bootstrap](https://github.com/twbs/bootstrap)
 - [Brijesh Bittu's chat `css` code](https://codepen.io/brijeshb42/pen/pprmeO)
 
-I added used both the `chat.css` code and css code native to Bootstrap. I also added Javascript code which would populate the html page with message boxes as they were received / sent. The actual messages were sent using Flask-SocketIO through in-browser SocketIO messages.    
+I added used both the `chat.css` code and css code native to Bootstrap. I also added Javascript code which would populate the html page with message boxes as they were received / sent. The actual messages were sent using Flask-SocketIO through in-browser SocketIO messages. The way Flask-SocketIO works is that it routinely polls the browser in the background. 
 
 ### Database
 I elected to use MongoDB (a Docker [`mongod`](https://hub.docker.com/_/mongo) service and the [`pymongo`](https://pypi.org/project/pymongo/) library)
@@ -78,6 +78,6 @@ The template processor takes a template ID (patient, doctor, etc.) as an input, 
 Like the device module but for user roles instead, it is responsible for loading the JSON templates for different users (patient, doctor, administrator) and  
 
 ### Variable Definitions 
-
+All static variables, particularly those defining the template locations, MongoDB settings, and Flask configuration options, are defined in one file, `variables.py`. These variables are then imported to the other modules using `import variables`. The advantage of doing it this way is that it is easier to keep track of all the variables that it may be desirable to update along the development process and to make those changes in one place.   
 ### main.py and web_app.py
 
