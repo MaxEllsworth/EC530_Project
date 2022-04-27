@@ -117,9 +117,8 @@ class audio_file:
 if __name__ == "__main__":
     r = sr.Recognizer()
     audio_f = audio_file(audio_uid =  "f5ce9b47903c4e3099ca71ca6a8e67f1",)
-
     audio_f.audio_file_locator(audio_f.audio_uid)
     audio_f.chunkify_using_silence()
     audio_f.transcribe_chunks(transcribe_all = True, chunk_index = 2)
     print(audio_f.chunk_translations)
-  #  sleep(100000)
+    sleep(100000)
