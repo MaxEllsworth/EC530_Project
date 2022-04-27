@@ -54,7 +54,7 @@ The chat module uses the following libraries / code written by other people:
 I added used both the `chat.css` code and css code native to Bootstrap. I also added Javascript code which would populate the html page with message boxes as they were received / sent. The actual messages were sent using Flask-SocketIO through in-browser SocketIO messages. The way Flask-SocketIO works is that it routinely polls the browser in the background. 
 
 ### Database
-I elected to use MongoDB (a Docker [`mongod`](https://hub.docker.com/_/mongo) service and the [`pymongo`](https://pypi.org/project/pymongo/) library)
+I elected to use MongoDB (a Docker [`mongod`](https://hub.docker.com/_/mongo) service and the [`pymongo`](https://pypi.org/project/pymongo/) library). I found the PyMongo interface to be far better than that of sqlite3, in which arguments are passed as strings. 
 
 ### Device Code
 The device module is responsible for importing templates (currently json files).   
