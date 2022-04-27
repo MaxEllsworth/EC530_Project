@@ -49,10 +49,13 @@ The chat module uses the following libraries / code written by other people:
 - [Flask](https://pypi.org/project/Flask/)
 - [Flask-SocketIO](https://pypi.org/project/Flask-SocketIO/)
 - [Bootstrap](https://github.com/twbs/bootstrap)
-- [Brijesh Bittu](https://codepen.io/brijeshb42/pen/pprmeO)
+- [Brijesh Bittu's chat `css` code](https://codepen.io/brijeshb42/pen/pprmeO)
+
+I added used both the `chat.css` code and css code native to Bootstrap. I also added Javascript code which would populate the html page with message boxes as they were received / sent. The actual messages were sent using Flask-SocketIO through in-browser SocketIO messages.    
 
 ### Database
 I elected to use MongoDB (a Docker [`mongod`](https://hub.docker.com/_/mongo) service and the [`pymongo`](https://pypi.org/project/pymongo/) library)
+
 ### Device Code
 The device module is responsible for importing templates (currently json files).   
 
@@ -72,7 +75,9 @@ The template processor takes a template ID (patient, doctor, etc.) as an input, 
 ### Tests 
 
 ### User Code 
+Like the device module but for user roles instead, it is responsible for loading the JSON templates for different users (patient, doctor, administrator) and  
 
 ### Variable Definitions 
 
 ### main.py and web_app.py
+
