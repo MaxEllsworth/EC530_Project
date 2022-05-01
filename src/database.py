@@ -50,6 +50,17 @@ class mongo_user_wrapper(object):
 		db = self.client[collection_name]
 		col = db[uid]
 		col.insert_one(flattened)
+	
+	def uid_available(self, uid = ""):
+		collection_name = self.user_object.__name__
+		db = self.client[collection_name]
+		col = db["fake uid"]
+        if (uid == None) or (type(uid) != str):
+            uid = uuid.uuid4().hex
+
+		return True
+
+
 			
 		#print(db.list_collection_names())
 

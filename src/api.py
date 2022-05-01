@@ -7,6 +7,7 @@ import variables
 from devices import device_blueprint
 from users import user_blueprint
 from database import mongo_user_wrapper
+import uuid
 
 mongodb_port = variables.mongodb_port
 mongodb_address = variables.mongodb_address
@@ -20,8 +21,19 @@ app.register_blueprint(device_blueprint)
 @app.route("/api/add_user/")
 def add_user():
     client = MongoClient(mongodb_uri)
-    user = users.add_user(collection_name, attributes, user_uid = "",)
+    user_type = requests.form["user_type"]
+    attributes = requests.form["attributes"]
+    user_uuid = requests.form["user_uuid"]
 
+    if (user_type == None):
+        user_type = "patient"
+    if (attributes == None):
+        attributes = {}
+    if (user_uuid == None):
+        user_uid = uuid.uuid4.hex()
+
+    user = users.add_user(user_type, attributes, user_uuid)
+    
     True
 '''
 @app.route("/api/delete_user")
