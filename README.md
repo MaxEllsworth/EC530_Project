@@ -73,11 +73,11 @@ In order to perform transcription, the audio file and associated metadata (stora
 The template processor takes a template ID (patient, doctor, etc.) as an input, loads the json file, and outputs the contents as a JSON object 
 
 ### Tests 
-
+`unittest` testing
 ### User Code 
-Like the device module but for user roles instead, it is responsible for loading the JSON templates for different users (patient, doctor, administrator) and  
+Like the device module but for user roles instead, it is responsible for loading the JSON templates for different users (patient, doctor, administrator) and merging new information passed about those users with the fields defined in the user templates.  
 
 ### Variable Definitions 
 All static variables, particularly those defining the template locations, MongoDB settings, and Flask configuration options, are defined in one file, `variables.py`. These variables are then imported to the other modules using `import variables`. The advantage of doing it this way is that it is easier to keep track of all the variables that it may be desirable to update along the development process and to make those changes in one place.   
-### main.py and web_app.py
+<!--### main.py and web_app.py-->
 

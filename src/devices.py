@@ -1,4 +1,4 @@
-#!.python_venv/bin/python3
+#!/usr/bin/python3
 #https://medium.com/fintechexplained/advanced-python-metaprogramming-980da1be0c7d#:~:text=Python%20uses%20a%20metaclass%20to,special%20behavior%20to%20a%20class.
 # https://www.geeksforgeeks.org/read-json-file-using-python/
 #https://stackoverflow.com/questions/4529815/saving-an-object-data-persistence
@@ -29,7 +29,6 @@ app = Flask(__name__)
 #def instantiate_device(device_name):
 @device_blueprint.route("/list_devices")
 def list_devices():
-	
 #	f = open(device_templates + "devices.json")
 #	devices = json.load(f)
 #	f.close()

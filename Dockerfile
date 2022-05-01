@@ -29,5 +29,5 @@ copy . .
 #ADD bootstrap/ /app/html/bootstrap/
 #ADD css/ /app/html/css/
 CMD ["pdoc","--html","src/"]
-CMD ["python3.8", "./src/speech.py"]
+CMD ["python3.8", "./src/api.py"]
 #RUN python3 database.py    

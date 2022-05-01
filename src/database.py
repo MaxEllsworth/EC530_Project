@@ -11,6 +11,10 @@ mongodb_port = variables.mongodb_port
 mongodb_address = variables.mongodb_address
 mongodb_uri = variables.mongodb_uri
 
+app = Flask(__name__)
+db_blueprint = Blueprint("Database blueprint", __name__)
+
+
 def item_generator(json_input, lookup_key):
 	# source: https://stackoverflow.com/questions/21028979/recursive-iteration-through-nested-json-for-specific-key-in-python
     if isinstance(json_input, dict):
@@ -38,18 +42,28 @@ class mongo_user_wrapper(object):
 		cursor = col.find({})
 		for document in cursor:
 			print(document)
-	def save(self):
+	def save(self, uid = "1234"):
 		flattened = flatten_json.flatten(jsonify(self.user_object))
 		collection_name = self.user_object.__name__
 		flattened['cao'] = float(time())		
 		columns = flattened.keys() 
 		db = self.client[collection_name]
-		col = db["fake uid"]
+		col = db[uid]
 		col.insert_one(flattened)
 			
 		#print(db.list_collection_names())
-		
 
+#@db_blueprint.route("/user/",methods=["POST"])
+
+'''def mongo_user_web_wrapper(action = "", collection_name = "",attributes={}):
+	client = MongoClient(mongodb_uri)
+	user = users.add_user(collection_name, attributes)
+	db_wrapper = mongo_user_wrapper(user)
+	if (action == "save"):
+		db_wrapper.save()
+	if (action == "show"):
+		db_wrapper.show()
+'''
 
 	#	for col in columns:
 	#		print("column is " + col)
@@ -72,7 +86,7 @@ class mongo_user_wrapper(object):
 	
 if __name__ == "__main__":
 	print(mongodb_uri)
-	client = MongoClient(mongodb_uri)
+
 #	db = client["patients"]
 #	column = db["test_column"]
 #	test_dict = {"1" : "one", "2" : "two"}
@@ -80,7 +94,4 @@ if __name__ == "__main__":
 #	print("Collection names are as follows:")
 #	print(db.list_collection_names())
 #	patient_uuid = db["patient_uuid"]
-	user = users.add_user("patient", {})
-	db_wrapper = mongo_user_wrapper(user)
-	db_wrapper.save()
-	db_wrapper.show()
+
