@@ -5,6 +5,7 @@ from flask import Flask, request, jsonify
 import variables
 
 from devices import device_blueprint
+import users
 from users import user_blueprint
 from database import MongoClient, mongo_user_wrapper
 import uuid
@@ -21,18 +22,17 @@ app.register_blueprint(device_blueprint)
 @app.route("/api/add_user/",methods=["GET", "POST"])
 def add_user():
      client = MongoClient(mongodb_uri)
-     user_type = request.form["user_type"]
-     attributes = request.form["attributes"]
-     user_uuid = request.form["user_uuid"]
+     user_type = request.form.get("user_type")
+     attributes = request.form.get("attributes")
+     user_uid = request.form.get("user_uid")
      if (user_type == None):
          user_type = "patient"
      if (attributes == None):
          attributes = {}
-     if (user_uuid == None):
-         user_uid = uuid.uuid4.hex()
-     user = users.add_user(user_type, attributes, user_uuid)
-     print("Add user worked")
-     return jsonify({"sample" : "response"})
+     if (user_uid == None):
+         user_uid = uuid.uuid4().hex
+     user = users.add_user(user_type, attributes, user_uid)
+     return jsonify({"uuid" : user_uid})
    
 '''
 @app.route("/api/delete_user")
