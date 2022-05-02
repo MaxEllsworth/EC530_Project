@@ -71,6 +71,7 @@ In order to perform transcription, the audio file and associated metadata (stora
 - Transcription using Google's API via `speech_recognition`
 ### Template Processor
 The template processor takes a template ID (patient, doctor, etc.) as an input, loads the json file, and outputs the contents as a JSON object 
+#### Patient Template
 ``` json
 {"identity" : 
     {
@@ -91,6 +92,27 @@ The template processor takes a template ID (patient, doctor, etc.) as an input, 
             "systolic" : "",
             "diastolic" : ""
         }
+    }
+}
+```
+
+#### Doctor Template
+```json
+{
+    "identity" : 
+    {
+    "fname" : "",
+    "lname" : "",
+    "dob" : "",
+    "sex" : "" 
+    },
+    "specialties" : 
+    {
+
+    },
+    "offices" : 
+    {
+
     }
 }
 ```
