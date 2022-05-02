@@ -22,8 +22,10 @@ app.register_blueprint(device_blueprint)
 
 @app.route("/api/add_user/",methods=["GET", "POST"])
 def add_user():
-    data = request.json
-
+     data = request.json
+   #  print('-----')
+   #  print(data)
+   #  print('-----')
      client = MongoClient(mongodb_uri)
      user_type = data["user_type"]
      attributes = data["attributes"]
