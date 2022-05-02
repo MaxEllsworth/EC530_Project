@@ -2,6 +2,7 @@
 
 
 from pymongo import MongoClient
+from flask import Flask, Blueprint
 import json, flatten_json # flatten json has to be installed
 import variables
 import users
@@ -54,10 +55,9 @@ class mongo_user_wrapper(object):
 	def uid_available(self, uid = ""):
 		collection_name = self.user_object.__name__
 		db = self.client[collection_name]
-		col = db["fake uid"]
-        if (uid == None) or (type(uid) != str):
-            uid = uuid.uuid4().hex
-
+	#	col = db["fake uid"]
+    #    if (uid == None) or (type(uid) != str):
+    #        uid = uuid.uuid4().hex
 		return True
 
 
@@ -88,9 +88,9 @@ class mongo_user_wrapper(object):
 	#			inserted_column.insert_one(inserted_content)
 	#		
 
-		True
-	def update(self):
-		True
+	#	True
+	#def update(self):
+#		True
 	
 
 
