@@ -22,10 +22,13 @@ app.register_blueprint(device_blueprint)
 
 @app.route("/api/add_user/",methods=["GET", "POST"])
 def add_user():
+    data = request.json
+
      client = MongoClient(mongodb_uri)
-     user_type = request.form.get("user_type")
-     attributes = request.form.get("attributes")
-     user_uid = request.form.get("user_uid")
+     user_type = data["user_type"]
+     attributes = data["attributes"]
+     user_uid = data["user_uid"]
+     print("user uid is currently " + str(user_uid))
      if (user_type == None):
          user_type = "patient"
      if (attributes == None):
@@ -35,6 +38,7 @@ def add_user():
          logging.info("Assigned user_uid " + str(user_uid))
      logging.info("user_uid is " + str(user_uid))     
      user = users.add_user(user_type, attributes, user_uid)
+     print(user.__dict__)
      return jsonify({"uuid" : user_uid})
    
 '''
