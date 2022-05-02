@@ -1,6 +1,7 @@
 #!/usr/bin/python3.8
 
 from flask import Flask, request, jsonify
+import logging
 #from flask_restx import Api
 import variables
 
@@ -31,6 +32,8 @@ def add_user():
          attributes = {}
      if (user_uid == None):
          user_uid = uuid.uuid4().hex
+         logging.info("Assigned user_uid " + str(user_uid))
+     logging.info("user_uid is " + str(user_uid))     
      user = users.add_user(user_type, attributes, user_uid)
      return jsonify({"uuid" : user_uid})
    
