@@ -69,6 +69,9 @@ In order to perform transcription, the audio file and associated metadata (stora
 - Splitting of the large audio file into smaller chunks using `pydub`
 - Generating unique IDs for the audio files and chunks using the Python `uuid` library
 - Transcription using Google's API via `speech_recognition`
+
+The test data used is a recording of a [Harvard sentence](https://www.cs.columbia.edu/~hgs/audio/harvard.html). The Harvard sentences are a collection of 72 different blocks of text. Each block has ten sentences / phrases in it. The original purpose of the Harvard sentences was to test VOIP systems. Under `audio/originals/` is a recording of Harvard sentence #57. This is the sample audio used to test the speech recognition module. 
+
 ### Template Processor
 The template processor takes a template ID (patient, doctor, etc.) as an input, loads the json file, and outputs the contents as a JSON object 
 #### Patient Template
