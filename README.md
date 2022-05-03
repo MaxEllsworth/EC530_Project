@@ -83,9 +83,15 @@ The device module is responsible for importing device templates (json) into the 
 
 ```
 device_metaclass: 
-
+  '''
+  class variables are whatever are passed to it in a json device template 
+  '''
 list_devices function: 
-
+  '''
+  iterates through json files in devices template directory,
+  adds contents to all_device_info json, 
+  returns all_device_info after iterating through all devices 
+  '''
 
 
 ```
