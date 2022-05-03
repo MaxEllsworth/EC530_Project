@@ -62,8 +62,10 @@ mongo_user_wrapper class:
         user_object: 
         client: 
     class functions:
-        show:   '''Shows collection for a given user category 
-                (doctor, patient, administrator)'''
+        show:   '''
+                Shows collection for a given user category 
+                (doctor, patient, administrator)
+                '''
         save    # Saves user object and all class variables in the user object's class. The user class is defined by a meta object (a class that returns a class) in which the class variables are defined by the user template (json). The implication of this is that the user object can have whatever variables it likes, and the database save function will save them regardless. This is done using a flatten_json function which is included in `database.py` and an additional key:value pair of cao:{datetime} is added to this json before it is saved.
 ```
 
