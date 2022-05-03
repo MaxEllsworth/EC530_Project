@@ -16,18 +16,6 @@ app = Flask(__name__)
 db_blueprint = Blueprint("Database blueprint", __name__)
 
 
-def item_generator(json_input, lookup_key):
-	# source: https://stackoverflow.com/questions/21028979/recursive-iteration-through-nested-json-for-specific-key-in-python
-    if isinstance(json_input, dict):
-        for k, v in json_input.items():
-            if k == lookup_key:
-                yield v
-            else:
-                yield from item_generator(v, lookup_key)
-    elif isinstance(json_input, list):
-        for item in json_input:
-            yield from item_generator(item, lookup_key)
-
 def jsonify(object):
 	return {key:value for key, value in object.__dict__.items() if not key.startswith('__') and not callable(key)}
 
