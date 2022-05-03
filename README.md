@@ -75,7 +75,8 @@ mongo_user_wrapper class:
       The implication of this is that the user object can have whatever variables 
       it likes, and the database save function will save them regardless. 
       This is done using a flatten_json function which is included in `database.py` 
-      and an additional key:value pair of cao:{datetime} is added to this json before it is saved.
+      and an additional key:value pair of cao:{datetime} is added 
+      to this json before it is saved.
       '''
 ```
 
