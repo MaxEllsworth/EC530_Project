@@ -70,7 +70,7 @@ mongo_user_wrapper class:
     save:    
       '''
       Saves user object and all class variables in the user object's class. 
-      The user class is defined by a meta object (a class that returns a class) 
+      The user class is defined by a metaclass (a class that returns a class) 
       in which the class variables are defined by the user template (json). 
       The implication of this is that the user object can have whatever variables 
       it likes, and the database save function will save them regardless. 
@@ -81,7 +81,16 @@ mongo_user_wrapper class:
 ```
 
 ### Device Code
-The device module is responsible for importing templates (currently json files).   
+The device module is responsible for importing device templates (json) into the device_metaclass and returning a device object which is instantiated with the device's properties (from the device template). Also available in the device module is a function for listing all devices according to what templates are available.
+
+```
+device_metaclass: 
+
+list_devices function: 
+
+
+
+```
 
 ### Speech Queue
 The speech queue is just an implementation of the [speech to text](#Speech-To-Text) module where the transcription function is executed as a target process in a multiprocess queue. The benefit of using mulitiprocess queues is that they are native to Python3 and do not require any extra broker servers to be running in the background. This part of the project is not completely flushed out and still requires a bit of work, however the basic outline is there.  
